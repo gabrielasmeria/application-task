@@ -21,8 +21,8 @@
 -->
 
 <xwikidoc>
-  <web>TaskManager</web>
-  <name>TaskManagerTranslations</name>
+  <web>TaskManagerCode</web>
+  <name>TaskManagerTranslations.fr</name>
   <language>fr</language>
   <defaultLanguage>en</defaultLanguage>
   <translation>1</translation>

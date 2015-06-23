@@ -21,7 +21,7 @@
 -->
 
 <xwikidoc>
-  <web>TaskManager</web>
+  <web>TaskManagerCode</web>
   <name>TaskManagerClass</name>
   <language/>
   <defaultLanguage/>
@@ -43,7 +43,7 @@
   <syntaxId>xwiki/2.0</syntaxId>
   <hidden>true</hidden>
   <class>
-    <name>TaskManager.TaskManagerClass</name>
+    <name>TaskManagerCode.TaskManagerClass</name>
     <customClass/>
     <customMapping/>
     <defaultViewSheet/>
@@ -84,12 +84,12 @@
 ## - $type[String] = the intended display mode ('view', 'edit', 'hidden', 'search', etc.)
 ## - $value[DBList in this case] = the property value
 ##
-#set($discard = $xwiki.jsx.use('TaskManager.TaskManagerClass'))
-#set($discard = $xwiki.ssx.use('TaskManager.TaskManagerClass'))
+#set($discard = $xwiki.jsx.use('TaskManagerCode.TaskManagerClass'))
+#set($discard = $xwiki.ssx.use('TaskManagerCode.TaskManagerClass'))
 #macro(displayTaskAsDependency $taskid)
   #set($taskpageref = $services.model.resolveDocument($taskid))
   #set($taskpage = $xwiki.getDocument($taskpageref))
-  #set($task = $taskpage.getObject('TaskManager.TaskManagerClass'))
+  #set($task = $taskpage.getObject('TaskManagerCode.TaskManagerClass'))
   #set($tasktitle = $task.getProperty('name').value)
   #set($tasklink = $task.getName())
   #set($taskstatus = $task.getProperty('status').value)
@@ -129,7 +129,7 @@
 
 {{html wiki="true"}}
 #if($type == 'edit')
-  #set($query = "from doc.object(TaskManager.TaskManagerClass) as task where doc.fullName not like '%Template' and doc.fullName &lt;&gt; '$doc.fullName' order by task.duedate")
+  #set($query = "from doc.object(TaskManagerCode.TaskManagerClass) as task where doc.fullName not like '%Template' and doc.fullName &lt;&gt; '$doc.fullName' order by task.duedate")
   #set($results = $services.query.xwql($query).execute())
   #if($results.size() != 0)
     &lt;div id="TaskManager.TaskManagerClass_dependencies"&gt;
@@ -231,7 +231,7 @@
 ## - $type[String] = the intended display mode ('view', 'edit', 'hidden', 'search', etc.)
 ## - $value[DBList in this case] = the property value
 ##
-#set ($discard = $services.localization.use('document', 'TaskManager.TaskManagerTranslations'))
+#set ($discard = $services.localization.use('document', 'TaskManagerCode.TaskManagerTranslations'))
 {{html}}
   #if($type=='view')
       &lt;div class="progress"&gt;
@@ -261,7 +261,7 @@
     </progress>
     <project>
       <cache>0</cache>
-      <classname>TaskManager.ProjectClass</classname>
+      <classname>TaskManagerCode.ProjectClass</classname>
       <customDisplay/>
       <disabled>0</disabled>
       <displayType>select</displayType>
@@ -306,14 +306,14 @@
     </reporter>
     <severity>
       <cache>0</cache>
-      <classname>TaskManager.SeverityClass</classname>
+      <classname>TaskManagerCode.SeverityClass</classname>
       <customDisplay>{{velocity}}
-#set ($discard = $services.localization.use('document', 'TaskManager.TaskManagerTranslations'))
+#set ($discard = $services.localization.use('document', 'TaskManagerCode.TaskManagerTranslations'))
 #if($context.action=='edit')
 {{html}}
 #set($name ="severity")
 #set($propertyClass = $object.getxWikiClass().get($name))
-#set($existingValue = $doc.getObject('TaskManager.TaskManagerClass').getValue('severity'))
+#set($existingValue = $doc.getObject('TaskManagerCode.TaskManagerClass').getValue('severity'))
 &lt;select size="1" name="TaskManager.TaskManagerClass_0_severity" id="TaskManager.TaskManagerClass_0_severity"&gt;
 #foreach($rValue in $propertyClass.mapValues.entrySet())
   #set($key = "TaskManager.SeverityClass_severity_$rValue.key")
@@ -328,7 +328,7 @@
 #end
 {{/html}}
 #else
-  #set($key = $doc.getObject('TaskManager.TaskManagerClass').getValue('severity'))
+  #set($key = $doc.getObject('TaskManagerCode.TaskManagerClass').getValue('severity'))
   #set($translation = $services.localization.render($key))
   #if ($translation == $key)
     $key
@@ -359,14 +359,14 @@
     </severity>
     <status>
       <cache>0</cache>
-      <classname>TaskManager.StatusClass</classname>
+      <classname>TaskManagerCode.StatusClass</classname>
       <customDisplay>{{velocity}}
-#set ($discard = $services.localization.use('document', 'TaskManager.TaskManagerTranslations'))
+#set ($discard = $services.localization.use('document', 'TaskManagerCode.TaskManagerTranslations'))
 #if($context.action=='edit')
 {{html}}
 #set($name ="status")
 #set($propertyClass = $object.getxWikiClass().get($name))
-#set($existingValue = $doc.getObject('TaskManager.TaskManagerClass').getValue('status'))
+#set($existingValue = $doc.getObject('TaskManagerCode.TaskManagerClass').getValue('status'))
 &lt;select size="1" name="TaskManager.TaskManagerClass_0_status" id="TaskManager.TaskManagerClass_0_status"&gt;
 #foreach($rValue in $propertyClass.mapValues.entrySet())
   #set($key = "TaskManager.StatusClass_status_$rValue.key")
@@ -381,7 +381,7 @@
 #end
 {{/html}}
 #else
-  #set($key = $doc.getObject('TaskManager.TaskManagerClass').getValue('status'))
+  #set($key = $doc.getObject('TaskManagerCode.TaskManagerClass').getValue('status'))
   #set($translation = $services.localization.render($key))
   #if ($translation == $key)
     $key
@@ -435,7 +435,7 @@
         <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
       </sheet>
     </class>
-    <name>TaskManager.TaskManagerClass</name>
+    <name>TaskManagerCode.TaskManagerClass</name>
     <number>0</number>
     <className>XWiki.ClassSheetBinding</className>
     <guid>079ad206-fadb-43b2-8419-25aed0295a85</guid>
@@ -467,7 +467,7 @@
         <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
       </sheet>
     </class>
-    <name>TaskManager.TaskManagerClass</name>
+    <name>TaskManagerCode.TaskManagerClass</name>
     <number>0</number>
     <className>XWiki.DocumentSheetBinding</className>
     <guid>bdd1438d-f6dc-43b7-a9ad-da4b418cdcf4</guid>
@@ -499,7 +499,7 @@
         <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
       </sheet>
     </class>
-    <name>TaskManager.TaskManagerClass</name>
+    <name>TaskManagerCode.TaskManagerClass</name>
     <number>1</number>
     <className>XWiki.DocumentSheetBinding</className>
     <guid>6a5b2754-c723-4e34-a61a-0e3b387c5319</guid>
@@ -579,7 +579,7 @@
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </use>
     </class>
-    <name>TaskManager.TaskManagerClass</name>
+    <name>TaskManagerCode.TaskManagerClass</name>
     <number>0</number>
     <className>XWiki.JavaScriptExtension</className>
     <guid>93d9d9fc-9c70-4fa5-992e-73d6eb2937bc</guid>
@@ -610,7 +610,7 @@
     </property>
   </object>
   <object>
-    <name>TaskManager.TaskManagerClass</name>
+    <name>TaskManagerCode.TaskManagerClass</name>
     <number>0</number>
     <className>XWiki.StyleSheetExtension</className>
     <guid>ea3fc26a-af9d-413a-9d5f-ed847c36c170</guid>
@@ -713,7 +713,7 @@
     </property>
   </object>
   <object>
-    <name>TaskManager.TaskManagerClass</name>
+    <name>TaskManagerCode.TaskManagerClass</name>
     <number>1</number>
     <className>XWiki.StyleSheetExtension</className>
     <guid>0d86443b-d782-44fa-b43d-cb149393f1f1</guid>

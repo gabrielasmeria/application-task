@@ -21,14 +21,14 @@
 -->
 
 <xwikidoc>
-  <web>TaskManager</web>
+  <web>TaskManagerCode</web>
   <name>TaskManagerPanel</name>
   <language/>
   <defaultLanguage/>
   <translation>0</translation>
   <creator>xwiki:XWiki.Admin</creator>
   <creationDate>1401281172000</creationDate>
-  <parent>TaskManager.WebHome</parent>
+  <parent>TaskManagerCode.WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <date>1401283749000</date>
@@ -41,7 +41,7 @@
   <hidden>true</hidden>
   <content/>
   <object>
-    <name>TaskManager.TaskManagerPanel</name>
+    <name>TaskManagerCode.TaskManagerPanel</name>
     <number>0</number>
     <className>Panels.PanelClass</className>
     <guid>5806244c-f908-4435-98b4-7f646f468f8d</guid>
@@ -124,10 +124,10 @@
     <property>
       <content>{{velocity}}
   #panelheader($services.localization.render('taskmanager.panel.paneltitle'))
-  #set($query = "from doc.object(TaskManager.TaskManagerClass) as document where doc.fullName &lt;&gt; 'TaskManager.TaskManagerTemplate' and document.assignee=:currentUser order by document.duedate asc")
+  #set($query = "from doc.object(TaskManagerCode.TaskManagerClass) as document where doc.fullName &lt;&gt; 'TaskManagerCode.TaskManagerTemplate' and document.assignee=:currentUser order by document.duedate asc")
   #set($results = $services.query.xwql("$query").bindValue("currentUser", $services.model.serialize($xcontext.userReference,'compactwiki')).setLimit(5).execute())
   #foreach($result in $results)
-    #set($object = $xwiki.getDocument($result).getObject('TaskManager.TaskManagerClass'))
+    #set($object = $xwiki.getDocument($result).getObject('TaskManagerCode.TaskManagerClass'))
     * $services.icon.render('accept') **[[$object.getProperty('name').value&gt;&gt;$result]]**
     (% class="text-muted small" %)$services.localization.render('taskmanager.panel.untildate') $datetool.format('HH:mm dd/MMM/yyyy',$object.getProperty('duedate').value)
   #end

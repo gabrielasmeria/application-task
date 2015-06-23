@@ -20,7 +20,7 @@
 -->
 
 <xwikidoc version="1.1">
-  <web>TaskManager</web>
+  <web>TaskManagerCode</web>
   <name>TaskManagerSheet</name>
   <language/>
   <defaultLanguage/>
@@ -41,8 +41,8 @@
   <content>{{velocity}}
 #if(!$isGuest)
   {{html wiki="true"}}
-    #set ($discard = $doc.use('TaskManager.TaskManagerClass'))
-    #set ($discard = $services.localization.use('document', 'TaskManager.TaskManagerTranslations'))
+    #set ($discard = $doc.use('TaskManagerCode.TaskManagerClass'))
+    #set ($discard = $services.localization.use('document', 'TaskManagerCode.TaskManagerTranslations'))
     #if($xcontext.action =='view')
       (% class="xform" %)
       (((
@@ -206,14 +206,14 @@
                   $services.icon.render('font')
                   $escapetool.xml($doc.displayPrettyName('name', false, false))
                 &lt;/label&gt;
-                #set($taskName = $xwiki.getDocument($doc).getObject('TaskManager.TaskManagerClass').getProperty('name').value)
+                #set($taskName = $xwiki.getDocument($doc).getObject('TaskManagerCode.TaskManagerClass').getProperty('name').value)
                 #if($taskName)
               :   &lt;input class="form-control" type="input" name="TaskManager.TaskManagerClass_0_name" value="$taskName"/&gt;
                 #else
               :   &lt;input class="form-control" type="input" name="TaskManager.TaskManagerClass_0_name" value="$doc.name"/&gt;
                 #end
                 #if($doc.isNew())
-                #set($query = "select max(taskObject.number) from Document doc, doc.object(TaskManager.TaskManagerClass) as taskObject")
+                #set($query = "select max(taskObject.number) from Document doc, doc.object(TaskManagerCode.TaskManagerClass) as taskObject")
                 #set($result = $services.query.xwql($query).execute())
                 #if (($result.get(0)) &amp;&amp; ("$!result.get(0)" != "")) 
                   #set($index = $result.get(0))
@@ -347,7 +347,7 @@
 #end
 {{/velocity}}</content>
   <object>
-    <name>TaskManager.TaskManagerSheet</name>
+    <name>TaskManagerCode.TaskManagerSheet</name>
     <number>0</number>
     <className>XWiki.JavaScriptExtension</className>
     <guid>c4c67258-1aa1-456a-b54e-cc89a2af887c</guid>

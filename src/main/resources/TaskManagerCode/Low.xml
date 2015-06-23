@@ -21,13 +21,13 @@
 -->
 
 <xwikidoc version="1.1">
-  <web>TaskManager</web>
+  <web>TaskManagerCode</web>
   <name>Low</name>
   <language/>
   <defaultLanguage/>
   <translation>0</translation>
   <creator>xwiki:XWiki.Admin</creator>
-  <parent>TaskManager.WebHome</parent>
+  <parent>TaskManagerCode.WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1382358826000</creationDate>
@@ -41,12 +41,12 @@
   <hidden>true</hidden>
   <content/>
   <object>
-    <name>TaskManager.Low</name>
+    <name>TaskManagerCode.Low</name>
     <number>0</number>
-    <className>TaskManager.SeverityClass</className>
+    <className>TaskManagerCode.SeverityClass</className>
     <guid>f2e88aa2-f5c1-48e8-8136-696d206ccf06</guid>
     <class>
-      <name>TaskManager.SeverityClass</name>
+      <name>TaskManagerCode.SeverityClass</name>
       <customClass/>
       <customMapping/>
       <defaultViewSheet/>

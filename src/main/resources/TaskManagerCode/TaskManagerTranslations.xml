@@ -21,7 +21,7 @@
 -->
 
 <xwikidoc version="1.1">
-  <web>TaskManager</web>
+  <web>TaskManagerCode</web>
   <name>TaskManagerTranslations</name>
   <language/>
   <defaultLanguage>en</defaultLanguage>
@@ -125,7 +125,7 @@ taskmanager.panel.fulltasklist=See full list
 taskmanager.panel.noactivetasks=No active Tasks
 </content>
   <object>
-    <name>TaskManager.TaskManagerTranslations</name>
+    <name>TaskManagerCode.TaskManagerTranslations</name>
     <number>0</number>
     <className>XWiki.TranslationDocumentClass</className>
     <guid>6ea857d9-5fc5-47d8-9611-ee26430738e7</guid>
